@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Garden
+comment0.text=\r\n\ Driver\ class\ for\ flowers\r\n\ Make\ flowers\ and\ grow\ them\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=Garden()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Garden\r\n
+comment2.params=
+comment2.target=void\ growGarden()
+comment2.text=\r\n\ Grows\ the\ flowers\ in\ the\ garden,\ and\ animate\ the\ objects\r\n
+numComments=3

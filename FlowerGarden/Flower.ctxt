@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Flower
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Flower\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=x\ y\ size\ stem\ col
+comment1.target=Flower(double,\ double,\ int,\ int,\ java.awt.Color)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Flower\r\n
+comment2.params=
+comment2.target=void\ setTop()
+comment2.text=\r\n\ Set\ Top\r\n
+comment3.params=
+comment3.target=void\ setLeft()
+comment3.text=\r\n\ Set\ left\r\n
+comment4.params=
+comment4.target=void\ setBottom()
+comment4.text=\r\n\ Set\ bottom\r\n
+comment5.params=
+comment5.target=void\ drawFlower()
+comment5.text=\r\n\ Draw\ the\ flower\ on\ screen\r\n
+comment6.params=
+comment6.target=void\ erase()
+comment6.text=\r\n\ Erase\ a\ rect\ around\ the\ current\ object\r\n
+comment7.params=
+comment7.target=void\ grow()
+comment7.text=\r\n\ Make\ the\ flower\ grow\r\n
+numComments=8
