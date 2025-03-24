@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Lollipop
+comment0.text=\r\n\ Draws\ little\ pictures\ on\ the\ graphics\ pane\r\n
+comment1.params=
+comment1.target=Lollipop()
+comment2.params=
+comment2.target=void\ doDrawLollipop()
+comment2.text=Draw\ a\ lollipop\ at\ (300,100)\ asking\ the\ user\ for\ its\ size
+comment3.params=x\ y\ size\ stick
+comment3.target=void\ drawLollipop(double,\ double,\ double,\ double)
+comment3.text=Draw\ a\ red\ lollipop\ on\ a\ stick
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+numComments=5
