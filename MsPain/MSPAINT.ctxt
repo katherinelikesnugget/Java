@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=MSPAINT
+comment0.text=\r\n\ Painting\r\n\r\n\ @author\ Katherine\ Ng\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=MSPAINT()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MSPAINT\r\n
+comment2.params=action\ x\ y
+comment2.target=void\ doMouse(java.lang.String,\ double,\ double)
+comment2.text=\r\n\ Drawing\ lines\ by\ checking\ my\ mouse\ action\r\n\ @para\ x,\ y\r\n
+comment3.params=size
+comment3.target=void\ getSize(double)
+comment3.text=\r\n\ A\ slider\ to\ get\ the\ brush\ size\r\n\ @para\ double\ size\r\n
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+comment4.text=\r\n\ \ Main\ routine\r\n
+comment5.params=
+comment5.target=void\ changeColor()
+comment5.text=\r\n\ Callback\ to\ let\ user\ choose\ colour\r\n\ \ \ \ \ \r\n\ \ \ \ public\ void\ doChoosecolor(){\r\n\ \ \ \ \ \ \ \ this.currentColor\ \=\ JColorChooser.showDialog(null,\ "Choose\ Colour",\ currentColor);\r\n\ \ \ \ \ \ \ \ UI.setColor(this.currentColor);\r\n}
+numComments=6
