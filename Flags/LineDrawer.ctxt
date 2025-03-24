@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=LineDrawer
+comment0.text=\r\n\ Let\ user\ draw\ lines\ on\ graphics\ pane\ with\ the\ mouse\r\n\r\n\ @author\ Katherine\ Ng\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=action\ x\ y
+comment1.target=void\ doMouse(java.lang.String,\ double,\ double)
+comment1.text=\r\n\ callback\ mouse\ method\r\n
+comment2.params=
+comment2.target=void\ changeColor()
+comment2.text=\r\n\ Callback\ to\ let\ user\ choose\ colour\r\n\ \ \ \ \ \r\n\ \ \ \ public\ void\ doChoosecolor(){\r\n\ \ \ \ \ \ \ \ this.currentColor\ \=\ JColorChooser.showDialog(null,\ "Choose\ Colour",\ currentColor);\r\n\ \ \ \ \ \ \ \ UI.setColor(this.currentColor);\r\n}
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+comment3.text=\r\n\ \ Main\ routine\r\n
+numComments=4
