@@ -27,7 +27,7 @@ public class Garden
      * Grows the flowers in the garden, and animate the objects
      */
     private void growGarden(){
-        f1.drawFlower();
+        f1.draw();
     
         f1.grow();
         f1.grow();

@@ -63,9 +63,34 @@ public class Flower
     }
     
     /**
+     * Left Getter
+     */
+    public double getLeft(){
+        return this.left;
+    }
+    /**
+     * Right Getter
+     */
+    public double getRight(){
+        return this.left + this.flowerSize;
+    }
+    /**
+     * Top Getter
+     */
+    public double getTop(){
+        return this.top;
+    }
+    /**
+     * Bottom Getter
+     */
+    public double getBottom(){
+        return this.bottom;
+    }
+    
+    /**
      * Draw the flower on screen
      */
-    public void drawFlower(){
+    public void draw(){
         // draw stem
         UI.setColor(Color.green);   // Set the colour of stem
         UI.setLineWidth(2);
@@ -100,6 +125,6 @@ public class Flower
         this.setLeft();
         
         // Draw the flower again
-        this.drawFlower();
+        this.draw();
     }
 }
