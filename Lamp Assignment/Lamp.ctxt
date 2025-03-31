@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Lamp
+comment0.text=\ A\ Lamp\ object\ represents\ a\ table\ lamp\ on\ the\ graphics\ pane.\ A\ lamp\ consists\ of\ a\ colored\ bulb\ and\ a\ stem.\r\n\ \ \ It\ remembers\ its\ current\ position,\ its\ color\ and\ whether\ it\ is\ on\ or\ off.\r\n\ \ \ Its\ initial\ position\ and\ its\ color\ are\ set\ when\ it\ is\ constructed.\r\n\ \ \ The\ diameter\ of\ a\ bulb\ should\ be\ 80.\r\n\ \ \ The\ height\ of\ the\ stem\ should\ be\ 80.\r\n\ \ \ The\ width\ of\ the\ stem\ should\ be\ 20.\r\n\ \ \ It\ has\ three\ methods\:\r\n\ \ \ \ \ draw(),\ \ \ \ \ \ \ \ which\ draws\ the\ lamp\ at\ its\ current\ position.\r\n\ \ \ \ \ onBulb(x,y),\ \ \ which\ reports\ whether\ the\ point(x,y)\ is\ on\ the\ bulb.\r\n\ \ \ \ \ onStem(x,y),\ \ \ which\ reports\ whether\ the\ point(x,y)\ is\ on\ the\ stem.\r\n\ \ \ \ \ turnOff(),\ \ \ \ \ which\ turns\ the\ light\ off.\r\n\ \ \ \ \ changeColor(),\ which\ turns\ the\ light\ on\ if\ it\ is\ off;\ changes\ its\ color\ to\ a\ random\ bright\ colour\ if\ it\ is\ already\ on.\ \r\n
+comment1.params=x\ y
+comment1.target=Lamp(double,\ double)
+comment1.text=\ Constructor\:\ passed\ the\ initial\ position.\r\n\ Initialises\ the\ fields\r\n
+comment2.params=
+comment2.target=void\ draw()
+comment2.text=\r\n\ draws\ the\ lamp\ at\ its\ current\ position\:\r\n\ -\ the\ bulb\ of\ the\ right\ colour.\r\n\ -\ the\ stem\ darkGray\r\n\ The\ height\ of\ the\ stem\ is\ the\ same\ as\ the\ diameter\ of\ the\ bulb\r\n\ The\ width\ of\ the\ stem\ is\ a\ quater\ of\ its\ height\r\n
+numComments=3
