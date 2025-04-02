@@ -19,5 +19,11 @@ public class Cities
         capitalCities.put("France", "Paris");
         System.out.println(capitalCities);
         System.out.println(capitalCities.get("New Zealand"));
+        
+        // remove keys
+        capitalCities.remove("France");
+        System.out.println(capitalCities);
+        // check the size
+        System.out.println(capitalCities.size());
     }
 }
