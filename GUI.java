@@ -23,6 +23,7 @@ public class GUI
         UI.addButton("Add", this::addBook);
         UI.addButton("Find", this::findBook);
         UI.addButton("Quit", UI::quit);
+        //UI.addButton("Edit", this::editQty);
     }
     
     /**
@@ -56,14 +57,14 @@ public class GUI
         
             // Increment the book ID count and add the hashmap
             books.setBookId();  // increment the id by 1
-            books.addBook(name, author, quantity, null);
+            books.addBook(name, author, quantity, imgFileName);
     }
     /**
      * Finds book based on name
      * Prints out the author and qty if found
      */
     public void findBook(){
-        String bookName = UI.askString("Name of books: ");
+        String bookName = UI.askString("Name of book: ");
         if (books.findBook(bookName.toLowerCase())) {
             UI.println("Found book!");
             book = books.getBook();
