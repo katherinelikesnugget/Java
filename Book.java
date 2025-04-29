@@ -15,6 +15,7 @@ public class Book
     private int quantity;
     private String image;
     static final String DEFAULT_IMAGE = "book.jpg";
+    private int clickBook = 0;
     
     /**
      * Constructor for objects of class Book
@@ -76,4 +77,16 @@ public class Book
     public int getQuantity() {
         return this.quantity;
     }
+    
+    /**
+     * Checks if the mouse is over the book
+     */
+    public int qtybook(double x, double y){
+        if ((x >= 100) && (x <= 300) &&
+            (y >= 100) && (y <= 400)){
+                clickBook ++;
+        }
+        return clickBook;
+    }
+    
 }

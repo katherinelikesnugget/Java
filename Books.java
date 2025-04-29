@@ -95,7 +95,6 @@ public class Books
      */
     public void editQty(){
         //UI.println(bookId);
-        String newBookQty = UI.askString("Which book qty to be changed");
         
     }
     
@@ -111,7 +110,6 @@ public class Books
             UI.println("(F)ind a book");
             UI.println("(P)rint all");
             UI.println("(Q)uit");
-            UI.println("(E)dit number of books");
             
             choice = UI.askString("Enter a choice: ");
             
@@ -140,10 +138,6 @@ public class Books
             } else if (choice.equalsIgnoreCase("Q")){
                 UI.println("Goodbye!");
                 UI.quit();
-            } else if (choice.equalsIgnoreCase("E")){
-                UI.println("WORKING");
-                printAll();
-                editQty();
             } else {
                 UI.println("Not a valid choice knucklehead!");
             }

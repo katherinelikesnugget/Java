@@ -23,7 +23,9 @@ public class GUI
         UI.addButton("Add", this::addBook);
         UI.addButton("Find", this::findBook);
         UI.addButton("Quit", UI::quit);
-        //UI.addButton("Edit", this::editQty);
+        
+        UI.setMouseListener(this::doMouse);
+        
     }
     
     /**
@@ -72,6 +74,24 @@ public class GUI
             UI.println("Quantity: " + book.getQuantity());
         } else {
             UI.println("That book does not exist!");  
+        }
+    }
+    
+    /**
+     * Add Qty when book is clicked
+     */
+    public void addQty(double x, double y){
+        
+    }
+    
+    /**
+     * Do mouse
+     */
+    public void doMouse(String action, double x, double y){
+        UI.println(action + ";" + x + ";" + y);
+        if (action.equals("clicked") && (this.book != null)){
+            int getQuantity = this.book.qtybook(x, y);
+            UI.println("Likes: " + getQuantity);
         }
     }
 }
