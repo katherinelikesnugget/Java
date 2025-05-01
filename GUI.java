@@ -10,6 +10,7 @@ public class GUI
     // instance variables - replace the example below with your own
     private Books books;    // declare books instance
     private Book book;      // declare book instance
+    int currLikes = 0;
 
     /**
      * Constructor for objects of class GUI
@@ -72,26 +73,22 @@ public class GUI
             book = books.getBook();
             UI.println("Author: " + book.getAuthor());
             UI.println("Quantity: " + book.getQuantity());
+            UI.println("Likes: " + currLikes);
         } else {
             UI.println("That book does not exist!");  
         }
     }
     
     /**
-     * Add Qty when book is clicked
-     */
-    public void addQty(double x, double y){
-        
-    }
-    
-    /**
      * Do mouse
      */
     public void doMouse(String action, double x, double y){
-        UI.println(action + ";" + x + ";" + y);
+        //UI.println(action + ";" + x + ";" + y);
         if (action.equals("clicked") && (this.book != null)){
-            int getQuantity = this.book.qtybook(x, y);
-            UI.println("Likes: " + getQuantity);
+            int getQty = this.book.qtybook(x, y);
+            UI.println("Likes: " + getQty);
+            //int storedLikes = getQty;
+            currLikes = getQty;
         }
     }
 }

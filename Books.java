@@ -91,15 +91,6 @@ public class Books
     }
     
     /**
-     * Edit number of books (qty)
-     */
-    public void editQty(){
-        //UI.println(bookId);
-        
-    }
-    
-    
-    /**
      * Menu to print and call appropriate methods
      */
     public void menu() {
@@ -138,6 +129,7 @@ public class Books
             } else if (choice.equalsIgnoreCase("Q")){
                 UI.println("Goodbye!");
                 UI.quit();
+    
             } else {
                 UI.println("Not a valid choice knucklehead!");
             }
