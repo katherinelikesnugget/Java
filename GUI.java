@@ -85,10 +85,10 @@ public class GUI
     public void doMouse(String action, double x, double y){
         //UI.println(action + ";" + x + ";" + y);
         if (action.equals("clicked") && (this.book != null)){
-            int getQty = this.book.qtybook(x, y);
-            UI.println("Likes: " + getQty);
-            //int storedLikes = getQty;
-            currLikes = getQty;
+            int getLikes= this.book.qtybook(x, y);
+            UI.println("Likes: " + getLikes);
+            //int storedLikes = getLikes;
+            currLikes = getLikes;
         }
     }
 }
