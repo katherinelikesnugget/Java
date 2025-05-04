@@ -12,6 +12,7 @@ public class GUI
     private Book book;      // declare book instance
     int currLikes = 0;
 
+    private String newString;
     /**
      * Constructor for objects of class GUI
      */
@@ -30,6 +31,20 @@ public class GUI
     }
     
     /**
+     * Checks if string is != null
+     */
+    public String newString(String prompt, String stringNullMessage) {
+        do {
+            newString = UI.askString(prompt);
+            if (newString.isEmpty()){
+                UI.println(stringNullMessage);
+            }
+        } while (newString.isEmpty());
+        return newString;
+    }
+    
+    
+    /**
      * Add a book to collection
      */
     public void addBook(){
@@ -38,8 +53,8 @@ public class GUI
         int quantity;
         
         // Ask the user for details
-        String name = UI.askString("Title: ");
-        String author = UI.askString("Author: ");
+        String name = newString("Title: ", "Null Message");
+        String author = newString("Author: ", "Null");
         
         // Check boundaries for the number of books added
         do {

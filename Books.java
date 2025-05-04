@@ -15,7 +15,7 @@ public class Books
     private HashMap<Integer,Book> library; // declaring the hashmap
     private int currBookId; // store thhhe current id number of the book being added
     private Book currBook; // store the instance of the current Book
-    
+    private String newString;
     
     /**
      * Constructor for objects of class Books
@@ -75,7 +75,6 @@ public class Books
     public Book getBook(){
         return this.currBook;
     }
-    
     
     /**
      * Print detail of all books
