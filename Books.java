@@ -26,9 +26,9 @@ public class Books
         library = new HashMap<Integer, Book>(); // initialise hashmap
         
         // Creating Books
-        Book b1 = new Book(1, "The Wicked King", "Holly Black", 2);
-        Book b2 = new Book(2, "1984", "George Orwell", 42);
-        Book b3 = new Book(3, "Song of Archilles", "Madelline Millar", 20);
+        Book b1 = new Book(1, "The Wicked King", "Holly Black", 2, "TheWickedKing.jpg");
+        Book b2 = new Book(2, "1984", "George Orwell", 42, "1984.jpg");
+        Book b3 = new Book(3, "Song of Archilles", "Madelline Millar", 20, "SongOfArchilles.jpg");
         
         // Add books to collection
         library.put(1, b1);

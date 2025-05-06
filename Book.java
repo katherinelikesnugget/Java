@@ -17,6 +17,14 @@ public class Book
     static final String DEFAULT_IMAGE = "book.jpg";
     private int clickBook = 0;
     
+    private String cover;
+    
+    // Book dimensions
+    private int locX;
+    private int locY;
+    private double width;
+    private double height;
+    
     /**
      * Constructor for objects of class Book
      */
@@ -26,11 +34,14 @@ public class Book
         name = nm;
         author = auth;
         quantity = qty;
-        if (img == null) {
+        cover = img;
+        /**if (img == null) {
             this.image = DEFAULT_IMAGE;     // add default img if user clicks cancel
         } else {
             this.image = img;
-        }
+        
+        }**/
+    
     }
     
     /**
@@ -48,10 +59,11 @@ public class Book
     public void displayBook() {
         int locX = 100;
         int locY = 100;
-        final double WIDTH = 300;
-        final double HEIGHT = 300;
+        final double WIDTH = 200;
+        final double HEIGHT = 250;
         
-        UI.drawImage(this.image, locX, locY, WIDTH, HEIGHT);
+        //UI.drawImage(this.image, locX, locY, WIDTH, HEIGHT);
+        UI.drawImage(cover, locX, locY, WIDTH, HEIGHT);
     }
     /**
      * Getter for id
