@@ -14,7 +14,7 @@ public class Book
     private String author;
     private int quantity;
     private String image;
-    static final String DEFAULT_IMAGE = "book.jpg";
+    private static final String DEFAULT_IMAGE = "DefaultBook.jpg";
     private int clickBook = 0;
     
     private String cover;
@@ -35,12 +35,11 @@ public class Book
         author = auth;
         quantity = qty;
         cover = img;
-        /**if (img == null) {
+        if (img == null) {
             this.image = DEFAULT_IMAGE;     // add default img if user clicks cancel
         } else {
             this.image = img;
-        
-        }**/
+        }
     
     }
     
@@ -63,7 +62,7 @@ public class Book
         final double HEIGHT = 250;
         
         //UI.drawImage(this.image, locX, locY, WIDTH, HEIGHT);
-        UI.drawImage(cover, locX, locY, WIDTH, HEIGHT);
+        UI.drawImage(this.image, locX, locY, WIDTH, HEIGHT);
     }
     /**
      * Getter for id

@@ -46,10 +46,18 @@ public class Books
     }
     
     /**
+     * Add a book to the map
+     */
+    public void addBook(String name, String author, int qty){
+        this.setBookId(); // increment by 1 current id
+        this.library.put(this.currBookId, new Book(this.currBookId, name, author, qty));
+    }
+    
+    /**
      * Add book to the map
      */
     public void addBook(String name, String author, int qty, String img) {
-        library.put(currBookId, new Book(currBookId, name, author, qty, img));
+        this.library.put(currBookId, new Book(currBookId, name, author, qty, img));
     }
     
     /**
@@ -91,7 +99,7 @@ public class Books
     
     /**
      * Menu to print and call appropriate methods
-     */
+     
     public void menu() {
         // Print menu and force choice
         String choice;
@@ -133,5 +141,5 @@ public class Books
                 UI.println("Not a valid choice knucklehead!");
             }
         } while (!choice.equalsIgnoreCase("Q"));    // loop unitl choice is 'Q'  
-    }
+    }*/
 }
