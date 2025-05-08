@@ -25,6 +25,7 @@ public class GUI
         UI.addButton("Add", this::addBook);
         UI.addButton("Find", this::findBook);
         UI.addButton("Quit", UI::quit);
+        UI.addButton("Remove", this::removeBook);
         
         UI.setMouseListener(this::doMouse);
         
@@ -91,6 +92,17 @@ public class GUI
             UI.println("Likes: " + currLikes);
         } else {
             UI.println("That book does not exist!");  
+        }
+    }
+    
+    public void removeBook(){
+        String bookNameRemove = UI.askString("Name of book to remove: ");
+        String bookAuthorRemove = UI.askString("Author of book to remove: ");
+        
+        if(books.removeBook(bookNameRemove.toLowerCase(), bookAuthorRemove.toLowerCase())){
+            UI.println("Removed Book");
+            book = books.getBook();
+            //library.remove(book);
         }
     }
     

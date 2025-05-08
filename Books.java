@@ -13,7 +13,7 @@ public class Books
 {
     // fields
     private HashMap<Integer,Book> library; // declaring the hashmap
-    private int currBookId; // store thhhe current id number of the book being added
+    private int currBookId; // store the current id number of the book being added
     private Book currBook; // store the instance of the current Book
     private String newString;
     
@@ -77,6 +77,24 @@ public class Books
         return false;
     }
     
+        /**
+         * Remove a book by ID number
+         */
+        public boolean removeBook(String name, String author){
+            // Search for book
+            for (int bookId: library.keySet()) {
+                if (library.get(bookId).getName().toLowerCase().equals(name.toLowerCase())){
+                    if (library.get(bookId).getAuthor().toLowerCase().equals(author.toLowerCase())){
+                    currBook = library.get(bookId);
+                    library.get(bookId).displayBook();
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    
     /**
      * Getter for the current book instance
      */
@@ -96,6 +114,7 @@ public class Books
                         + library.get(bookId).getQuantity());
         }
     }
+}
     
     /**
      * Menu to print and call appropriate methods
@@ -142,4 +161,4 @@ public class Books
             }
         } while (!choice.equalsIgnoreCase("Q"));    // loop unitl choice is 'Q'  
     }*/
-}
+
