@@ -8,7 +8,7 @@ import ecs100.*;
  */
 public class Book
 {
-    // fields
+    // instance variables
     private int id;
     private String name;
     private String author;
@@ -16,7 +16,6 @@ public class Book
     private String image;
     private static final String DEFAULT_IMAGE = "DefaultBook.jpg";
     private int clickBook = 0;
-    
     private String cover;
     
     // Book dimensions
@@ -30,11 +29,14 @@ public class Book
      */
     public Book (int key, String nm, String auth, int qty, String img)
     {
+        // initialise instance variables
         id = key;
         name = nm;
         author = auth;
         quantity = qty;
         cover = img;
+        
+        // Set the default img if there is no choosen img
         if (img == null) {
             this.image = DEFAULT_IMAGE;     // add default img if user clicks cancel
         } else {
@@ -44,7 +46,7 @@ public class Book
     }
     
     /**
-     * Constructor overloading
+     * Constructor overloading.
      * Set default image to obj
      */
       
@@ -56,6 +58,7 @@ public class Book
      * Display image on GUI
      */
     public void displayBook() {
+        // book dimensions
         int locX = 100;
         int locY = 100;
         final double WIDTH = 200;
@@ -65,32 +68,32 @@ public class Book
         UI.drawImage(this.image, locX, locY, WIDTH, HEIGHT);
     }
     /**
-     * Getter for id
+     * (Getter) Returns the ID of the book.
      */
     public int getId() {
         return this.id;
     }
     /**
-     * Getter for name
+     * (Getter) Returns the name of the book.
      */
     public String getName() {
         return this.name;
     }
     /**
-     * Getter for author
+     * (Getter) Returns the author of the book.
      */
     public String getAuthor() {
         return this.author;
     }
     /**
-     * Getter for quantity
+     * (Getter) Returns the quantity of the book.
      */
     public int getQuantity() {
         return this.quantity;
     }
     
     /**
-     * Checks if the mouse is over the book
+     * Checks if the mouse is over the book.
      */
     public int qtybook(double x, double y){
         if ((x >= 100) && (x <= 300) &&
@@ -99,5 +102,4 @@ public class Book
         }
         return clickBook;
     }
-    
 }

@@ -13,6 +13,7 @@ public class GUI
     int currLikes = 0;
 
     private String newString;
+    
     /**
      * Constructor for objects of class GUI
      */
@@ -24,8 +25,8 @@ public class GUI
         UI.addButton("Print All", books::printAll);
         UI.addButton("Add", this::addBook);
         UI.addButton("Find", this::findBook);
-        UI.addButton("Quit", UI::quit);
         UI.addButton("Remove", this::removeBook);
+        UI.addButton("Quit", UI::quit);
         
         UI.setMouseListener(this::doMouse);
         
@@ -40,7 +41,7 @@ public class GUI
             if (newString.isEmpty()){
                 UI.println(stringNullMessage);
             }
-        } while (newString.isEmpty());
+        } while (newString.isEmpty() || newString == " ");
         return newString;
     }
     
@@ -52,10 +53,20 @@ public class GUI
         final int MAX_QUANTITY = 99;
         final int INCREMENT = 1;
         int quantity;
+        String name;
+        String author;
         
         // Ask the user for details
-        String name = newString("Title: ", "Null Message");
-        String author = newString("Author: ", "Null");
+        // Check if same
+        do{
+            name = newString("Title: ", "Null Message").trim();
+            author = newString("Author: ", "Null").trim();
+            if (this.books.sameBook(name, author)) {
+                UI.println("Book is already in the collection or is a duplicate");
+                UI.println("Please try again");
+            }
+        } while(this.books.sameBook(name, author));
+
         
         // Check boundaries for the number of books added
         do {
@@ -77,13 +88,14 @@ public class GUI
             // Increment the book ID count and add the hashmap
             books.setBookId();  // increment the id by 1
             books.addBook(name, author, quantity, imgFileName);
-    }
+        }
+    
     /**
      * Finds book based on name
      * Prints out the author and qty if found
      */
     public void findBook(){
-        String bookName = UI.askString("Name of book: ");
+        String bookName = UI.askString("Name of book: ").trim();
         if (books.findBook(bookName.toLowerCase())) {
             UI.println("Found book!");
             book = books.getBook();
@@ -96,13 +108,15 @@ public class GUI
     }
     
     public void removeBook(){
-        String bookNameRemove = UI.askString("Name of book to remove: ");
-        String bookAuthorRemove = UI.askString("Author of book to remove: ");
+        String bookNameRemove = UI.askString("Name of book to remove: ").trim();
+        String bookAuthorRemove = UI.askString("Author of book to remove: ").trim();
         
         if(books.removeBook(bookNameRemove.toLowerCase(), bookAuthorRemove.toLowerCase())){
             UI.println("Removed Book");
-            book = books.getBook();
+            //book = books.getBook();
             //library.remove(book);
+        } else {
+            UI.println("Book does not exist");
         }
     }
     

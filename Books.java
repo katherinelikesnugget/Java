@@ -11,14 +11,14 @@ import ecs100.*;
  */
 public class Books
 {
-    // fields
+    // instance variables
     private HashMap<Integer,Book> library; // declaring the hashmap
     private int currBookId; // store the current id number of the book being added
     private Book currBook; // store the instance of the current Book
     private String newString;
     
     /**
-     * Constructor for objects of class Books
+     * Constructor for objects of class Books.
      */
     public Books()
     {
@@ -61,6 +61,22 @@ public class Books
     }
     
     /**
+     * 
+     */
+    public boolean sameBook(String name, String author) {
+        // Search for book
+        String book;
+        for (Book b: library.values()) {
+            if (b.getName().toLowerCase().equals(name.toLowerCase())
+            || b.getAuthor().toLowerCase().equals(author.toLowerCase())){
+                //currBook = b;
+                return true;
+            }
+        }
+        return false;
+    }  
+    
+    /**
      * Find a book based on name
      * Sets the current book instance if found
      * @return boolean false if not found
@@ -83,12 +99,13 @@ public class Books
         public boolean removeBook(String name, String author){
             // Search for book
             for (int bookId: library.keySet()) {
-                if (library.get(bookId).getName().toLowerCase().equals(name.toLowerCase())){
-                    if (library.get(bookId).getAuthor().toLowerCase().equals(author.toLowerCase())){
-                    currBook = library.get(bookId);
-                    library.get(bookId).displayBook();
+            if (library.get(bookId).getName().toLowerCase().equals(name.toLowerCase())
+            || library.get(bookId).getAuthor().toLowerCase().equals(author.toLowerCase())){
+
+                    //currBook = library.get(bookId);
+                    //library.get(bookId).displayBook();
+                    library.remove(bookId);
                     return true;
-                }
             }
         }
         return false;
@@ -109,9 +126,9 @@ public class Books
         // Traverse Map
         for (int bookId : library.keySet()) {
             UI.println(bookId + " Details: ");
-            UI.println(library.get(bookId).getName() + " "
-                        + library.get(bookId).getAuthor() + " "
-                        + library.get(bookId).getQuantity());
+            UI.println(library.get(bookId).getName() + ", by "
+                        + library.get(bookId).getAuthor() + ", "
+                        + library.get(bookId).getQuantity() + " books available");
         }
     }
 }
