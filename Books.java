@@ -16,6 +16,8 @@ public class Books
     private int currBookId; // store the current id number of the book being added
     private Book currBook; // store the instance of the current Book
     private String newString;
+    private Book book;
+    int currLikes = 0;
     
     /**
      * Constructor for objects of class Books.
@@ -46,6 +48,63 @@ public class Books
     }
     
     /**
+     * Checks if string is != null
+     */
+    public String newString(String prompt, String stringNullMessage) {
+        do {
+            newString = UI.askString(prompt);
+            if (newString.isEmpty()){
+                UI.println(stringNullMessage);
+            }
+        } while (newString.isEmpty() || newString == " ");
+        return newString;
+    }
+    
+    /**
+     * Add a book to collection
+     */
+    public void addBook(){
+        final int MAX_QUANTITY = 99;
+        final int INCREMENT = 1;
+        int quantity;
+        String name;
+        String author;
+        
+        // Ask the user for details
+        // Check if same
+        do{
+            name = newString("Title: ", "Null Message").trim();
+            author = newString("Author: ", "Null").trim();
+            if (sameBook(name, author)) {
+                UI.println("Book is already in the collection or is a duplicate");
+                UI.println("Please try again");
+            }
+        } while(sameBook(name, author));
+
+        
+        // Check boundaries for the number of books added
+        do {
+            quantity = UI.askInt("Quantity: ");
+            if ((quantity > 0) && (quantity <= MAX_QUANTITY)) {
+                UI.println("Added");
+            } else if (quantity > MAX_QUANTITY) {
+                UI.println("Must be less than 100");
+            } else if (quantity < 1) {
+                UI.println("Must be greater than 0");
+            } else {
+                UI.println("Must be a number");
+            }
+            } while (0 > quantity || quantity > MAX_QUANTITY);
+            
+            // add a book image for display in the GUI
+            String imgFileName = UIFileChooser.open("Choose Image File: ");
+        
+            // Increment the book ID count and add the hashmap
+            setBookId();  // increment the id by 1
+            addBook(name, author, quantity, imgFileName);
+        }
+
+    /**
      * Add a book to the map
      */
     public void addBook(String name, String author, int qty){
@@ -65,16 +124,33 @@ public class Books
      */
     public boolean sameBook(String name, String author) {
         // Search for book
-        String book;
+        //String book;
         for (Book b: library.values()) {
             if (b.getName().toLowerCase().equals(name.toLowerCase())
-            || b.getAuthor().toLowerCase().equals(author.toLowerCase())){
+            && b.getAuthor().toLowerCase().equals(author.toLowerCase())){
                 //currBook = b;
                 return true;
             }
         }
         return false;
     }  
+    
+    /**
+     * Finds book based on name
+     * Prints out the author and qty if found
+     */
+    public void findBook(){
+        String bookName = UI.askString("Name of book: ").trim();
+        if (findBook(bookName.toLowerCase())) {
+            UI.println("Found book!");
+            book = getBook();
+            UI.println("Author: " + book.getAuthor());
+            UI.println("Quantity: " + book.getQuantity());
+            UI.println("Likes: " + currLikes);
+        } else {
+            UI.println("That book does not exist!");  
+        }
+    }
     
     /**
      * Find a book based on name
@@ -91,6 +167,22 @@ public class Books
             }
         }
         return false;
+    }
+    
+    /**
+     * Remove book by asking name and author
+     */
+    public void removeBook(){
+        String bookNameRemove = UI.askString("Name of book to remove: ").trim();
+        String bookAuthorRemove = UI.askString("Author of book to remove: ").trim();
+        
+        if(removeBook(bookNameRemove.toLowerCase(), bookAuthorRemove.toLowerCase())){
+            UI.println("Removed Book");
+            //book = books.getBook();
+            //library.remove(book);
+        } else {
+            UI.println("Book does not exist");
+        }
     }
     
         /**

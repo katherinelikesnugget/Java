@@ -12,29 +12,29 @@ public class GUI
     private Book book;      // declare book instance
     int currLikes = 0;
 
-    private String newString;
+
+    // private String newString;
     
     /**
      * Constructor for objects of class GUI
      */
     public GUI()
     {
-        // initialise instance variables
         books = new Books();   // instantiate the books object
         UI.initialise();
         UI.addButton("Print All", books::printAll);
-        UI.addButton("Add", this::addBook);
-        UI.addButton("Find", this::findBook);
-        UI.addButton("Remove", this::removeBook);
+        UI.addButton("Add", books::addBook);
+        UI.addButton("Find", books::findBook);
+        UI.addButton("Remove", books::removeBook);
         UI.addButton("Quit", UI::quit);
         
-        UI.setMouseListener(this::doMouse);
+        UI.setMouseListener(books::doMouse);
         
     }
     
     /**
      * Checks if string is != null
-     */
+     
     public String newString(String prompt, String stringNullMessage) {
         do {
             newString = UI.askString(prompt);
@@ -43,12 +43,12 @@ public class GUI
             }
         } while (newString.isEmpty() || newString == " ");
         return newString;
-    }
+    }*/
     
     
     /**
      * Add a book to collection
-     */
+     
     public void addBook(){
         final int MAX_QUANTITY = 99;
         final int INCREMENT = 1;
@@ -88,12 +88,12 @@ public class GUI
             // Increment the book ID count and add the hashmap
             books.setBookId();  // increment the id by 1
             books.addBook(name, author, quantity, imgFileName);
-        }
+        }*/
     
     /**
      * Finds book based on name
      * Prints out the author and qty if found
-     */
+     
     public void findBook(){
         String bookName = UI.askString("Name of book: ").trim();
         if (books.findBook(bookName.toLowerCase())) {
@@ -105,8 +105,11 @@ public class GUI
         } else {
             UI.println("That book does not exist!");  
         }
-    }
+    }*/
     
+    /**
+     * Remove book by asking name and author
+     
     public void removeBook(){
         String bookNameRemove = UI.askString("Name of book to remove: ").trim();
         String bookAuthorRemove = UI.askString("Author of book to remove: ").trim();
@@ -118,11 +121,11 @@ public class GUI
         } else {
             UI.println("Book does not exist");
         }
-    }
+    }*/
     
     /**
      * Do mouse
-     */
+     
     public void doMouse(String action, double x, double y){
         //UI.println(action + ";" + x + ";" + y);
         if (action.equals("clicked") && (this.book != null)){
@@ -131,6 +134,13 @@ public class GUI
             //int storedLikes = getLikes;
             currLikes = getLikes;
         }
+    }*/
+    
+    /**
+     * Main method to run the program.
+     */
+    public static void main(String[] args) {
+        new GUI();
     }
 }
 
