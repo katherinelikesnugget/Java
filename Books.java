@@ -4,10 +4,10 @@ import ecs100.*;
  * Holds a collection of books in a hashmap
  * Allows a user to add, find, print all, edit from a menu
  * delete
- * prevent use from adding a duplicate book
+ * Prevents duplicate entries and includes GUI interaction
  *
  * @author KNG
- * @version (a version number or a date)
+ * @version 0.1
  */
 public class Books
 {
@@ -41,14 +41,14 @@ public class Books
     }
     
     /**
-     * Set bookId
+     * Set bookId.
      */
     public void setBookId() {
         this.currBookId += 1;
     }
     
     /**
-     * Checks if string is != null
+     * Checks if string is != null.
      */
     public String newString(String prompt, String stringNullMessage) {
         do {
@@ -56,15 +56,15 @@ public class Books
             if (newString.isEmpty()){
                 UI.println(stringNullMessage);
             }
-        } while (newString.isEmpty() || newString == " ");
+        } while (newString.isEmpty() || newString.equals(" "));
         return newString;
     }
     
     /**
-     * Add a book to collection
+     * Add a book to collection.
      */
     public void addBook(){
-        final int MAX_QUANTITY = 99;
+        final int MAX_QUANTITY = 999;
         final int INCREMENT = 1;
         int quantity;
         String name;
@@ -88,7 +88,7 @@ public class Books
             if ((quantity > 0) && (quantity <= MAX_QUANTITY)) {
                 UI.println("Added");
             } else if (quantity > MAX_QUANTITY) {
-                UI.println("Must be less than 100");
+                UI.println("Must be less than 1000");
             } else if (quantity < 1) {
                 UI.println("Must be greater than 0");
             } else {
@@ -105,7 +105,7 @@ public class Books
         }
 
     /**
-     * Add a book to the map
+     * Add a book to the map.
      */
     public void addBook(String name, String author, int qty){
         this.setBookId(); // increment by 1 current id
@@ -113,17 +113,17 @@ public class Books
     }
     
     /**
-     * Add book to the map
+     * Add book to the map.
      */
     public void addBook(String name, String author, int qty, String img) {
         this.library.put(currBookId, new Book(currBookId, name, author, qty, img));
     }
     
     /**
-     * 
+     * Checks if the book is already in the library.
      */
     public boolean sameBook(String name, String author) {
-        // Search for book
+
         //String book;
         for (Book b: library.values()) {
             if (b.getName().toLowerCase().equals(name.toLowerCase())
@@ -136,8 +136,8 @@ public class Books
     }  
     
     /**
-     * Finds book based on name
-     * Prints out the author and qty if found
+     * Finds book based on name.
+     * Prints out the author and qty if found.
      */
     public void findBook(){
         String bookName = UI.askString("Name of book: ").trim();
@@ -153,8 +153,8 @@ public class Books
     }
     
     /**
-     * Find a book based on name
-     * Sets the current book instance if found
+     * Find a book based on name.
+     * Sets the current book instance if found.
      * @return boolean false if not found
      */
     public boolean findBook(String name) {
@@ -170,7 +170,7 @@ public class Books
     }
     
     /**
-     * Remove book by asking name and author
+     * Remove book by asking name and author.
      */
     public void removeBook(){
         String bookNameRemove = UI.askString("Name of book to remove: ").trim();
@@ -178,21 +178,20 @@ public class Books
         
         if(removeBook(bookNameRemove.toLowerCase(), bookAuthorRemove.toLowerCase())){
             UI.println("Removed Book");
-            //book = books.getBook();
-            //library.remove(book);
+    
         } else {
             UI.println("Book does not exist");
         }
     }
     
         /**
-         * Remove a book by ID number
+         * Remove a book by ID number.
          */
         public boolean removeBook(String name, String author){
             // Search for book
             for (int bookId: library.keySet()) {
             if (library.get(bookId).getName().toLowerCase().equals(name.toLowerCase())
-            || library.get(bookId).getAuthor().toLowerCase().equals(author.toLowerCase())){
+            && library.get(bookId).getAuthor().toLowerCase().equals(author.toLowerCase())){
 
                     //currBook = library.get(bookId);
                     //library.get(bookId).displayBook();
@@ -205,14 +204,14 @@ public class Books
 
     
     /**
-     * Getter for the current book instance
+     * Getter for the current book instance.
      */
     public Book getBook(){
         return this.currBook;
     }
     
     /**
-     * Print detail of all books
+     * Print detail of all books.
      */
     public void printAll() {
         // Traverse Map
@@ -223,51 +222,18 @@ public class Books
                         + library.get(bookId).getQuantity() + " books available");
         }
     }
-}
-    
+
     /**
-     * Menu to print and call appropriate methods
-     
-    public void menu() {
-        // Print menu and force choice
-        String choice;
-        do {
-            UI.println("(A)dd a book");
-            UI.println("(F)ind a book");
-            UI.println("(P)rint all");
-            UI.println("(Q)uit");
-            
-            choice = UI.askString("Enter a choice: ");
-            
-            if (choice.equalsIgnoreCase("A")) {
-                // Ask user for title, author and quantity
-                String bookName = UI.askString("Name of book: ");
-                String bookAuthor = UI.askString("Author of book: ");
-                Integer bookQty = UI.askInt("Quantity of book: ");
-                addBook(bookName, bookAuthor, bookQty, null);
-                UI.println("Added " + bookName + " by " + bookAuthor + ", " + bookQty + " copies available");
-            } else if (choice.equalsIgnoreCase("F")){
-                // Ask user for a book
-                String bookName = UI.askString("Name of book: ");
-                
-                if (findBook(bookName)) {
-                    UI.println("Found book");
-                    UI.println("Name: " + currBook.getName());
-                    UI.println("Author: " + currBook.getAuthor());
-                    UI.println("Quantity: " + currBook.getQuantity());
-                } else {
-                    UI.println(bookName + " not found");
-                }
-                
-            } else if (choice.equalsIgnoreCase("P")){
-                printAll();
-            } else if (choice.equalsIgnoreCase("Q")){
-                UI.println("Goodbye!");
-                UI.quit();
-    
-            } else {
-                UI.println("Not a valid choice knucklehead!");
-            }
-        } while (!choice.equalsIgnoreCase("Q"));    // loop unitl choice is 'Q'  
-    }*/
+     * Do mouse.
+     */
+    public void doMouse(String action, double x, double y){
+        //UI.println(action + ";" + x + ";" + y);
+        if (action.equals("clicked") && (this.book != null)){
+            int getLikes= this.book.qtybook(x, y);
+            UI.println("Likes: " + getLikes);
+            //int storedLikes = getLikes;
+            currLikes = getLikes;
+        }
+    }
+}
 
