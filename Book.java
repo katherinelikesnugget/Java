@@ -13,6 +13,7 @@ public class Book {
   private String name;
   private String author;
   private int quantity;
+  private int likes;
   private String image;
   private static final String DEFAULT_IMAGE = "DefaultBook.jpg";
   private int clickBook = 0;
@@ -27,14 +28,15 @@ public class Book {
   /**
    * Constructor for objects of class Book.
    */
-  public Book(int key, String nm, String auth, int qty, String img) {
+  public Book(int key, String nm, String auth, int qty, int like, String img) {
     // initialise instance variables
     id = key;
     name = nm;
     author = auth;
     quantity = qty;
+    likes = like;
     cover = img;
-        
+    
     // Set the default img if there is no choosen img
     if (img == null) {
       this.image = DEFAULT_IMAGE;     // add default img if user clicks cancel
@@ -48,8 +50,8 @@ public class Book {
    * Set default image to obj.
    */
       
-  public Book(int key, String nm, String auth, int qty) {
-    this(key, nm, auth, qty, DEFAULT_IMAGE);
+  public Book(int key, String nm, String auth, int qty, int like) {
+    this(key, nm, auth, qty, like, DEFAULT_IMAGE);
   }
     
   /**
@@ -62,7 +64,6 @@ public class Book {
     final double WIDTH = 200;
     final double HEIGHT = 250;
         
-    // UI.drawImage(this.image, locX, locY, WIDTH, HEIGHT);
     UI.drawImage(this.image, locX, locY, WIDTH, HEIGHT);
   }
     
@@ -93,11 +94,18 @@ public class Book {
   public int getQuantity() {
     return this.quantity;
   }
-    
+
+  /**
+   * (Getter) Returns the likes.
+   */
+  public int getLikes() {
+    return this.likes;
+  }
+  
   /**
    * Checks if the mouse is over the book.
    */
-  public int qtybook(double x, double y) {
+  public int likesbook(double x, double y) {
     if ((x >= 100) && (x <= 300) 
         && (y >= 100) && (y <= 400)) {
       clickBook++;

@@ -28,6 +28,7 @@ public class GUI {
 
   /**
    * Main method to run the program.
+   * @param args
    */
   public static void main(String[] args) {
     new GUI();
